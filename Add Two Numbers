@@ -1,0 +1,25 @@
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+        head=ListNode()
+        temp=head
+        carry=0
+        
+        while l1 or l2 or carry:
+            
+            if l1:
+                carry+=l1.val
+                l1=l1.next
+            
+            if l2:
+                carry+=l2.val
+                l2=l2.next
+            
+            temp.next=ListNode(carry%10)        #FOR UNIT PLACE LIKE 16 % 10 = 6 (Remainder)
+            temp=temp.next
+            carry=carry//10                 # FOR THE CARRY VALUE TO BE ADDED OR INSERTED 16 // 10 = 1 (Quotient)
+        
+        return head.next   
