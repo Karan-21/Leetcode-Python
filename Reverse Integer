@@ -1,0 +1,15 @@
+class Solution(object):
+    def reverse(self, x):
+        y=str(abs(x)) # convert in into string with taking abs value
+        y=y.strip() # remove all the zeros by strip
+        y=y[::-1] # now finally reverse it
+        output=int(y) # now convert in into finally int
+        
+        if output>=2**31 -1 or output<=-2**31: #if it is out side the range.
+            return 0
+        
+        elif x<0: # if the input is negative, make it positive
+            return -1*output
+        
+        else: # everything is fine, then return output.
+            return output
