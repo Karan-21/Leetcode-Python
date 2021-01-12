@@ -1,0 +1,10 @@
+class Solution:
+    def isPalindrome(self, x: int) -> bool:  
+        reversing_array=str(x)[::-1] # creating a variable and storing the str in reverse format given syntax [star:end:-1]
+        if (str(x) in reversing_array): # then checking if it comes out to be in same order as the previous
+            return True # then that is a Palindrome, return True
+        else:
+            return False # if the order has changed then it is not a Palindrome, return False      
+        
+      
+       
