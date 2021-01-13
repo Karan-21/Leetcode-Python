@@ -1,0 +1,35 @@
+class Solution(object):
+    def romanToInt(self, s):
+        # taken from https://www.youtube.com/watch?v=MUUc4GFvlL0
+        
+        #declare all the symbol is Dic as key value pair
+        dic={
+            'I':1,
+            'V':5,
+            'X':10,
+            'L':50,
+            'C':100,
+            'D':500,
+            'M':1000,
+        }      
+        # make three pointer
+        total=0
+        curr=0
+        prev=0
+        
+        # now start loop in len of s list
+        for i in range(len(s)):
+            
+            curr=dic[s[i]] # making new curr in every iteration 
+            
+            if curr>prev: 
+                
+                total=total+curr-2*prev
+                
+            else:
+                
+                total=total+curr
+                
+            prev=curr #just to track of prev
+            
+        return total 
