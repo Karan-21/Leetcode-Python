@@ -1,0 +1,22 @@
+class Solution(object):
+    def isValid(self, s):
+        
+        # https://www.youtube.com/watch?v=lNYozout6FM 
+
+        stack=[]
+        para={")":"(","}":"{","]":"["}
+        
+        for i in s:
+            
+            if i in para.values():
+                
+                stack.append(i)
+                
+            elif stack and para[i]==stack[-1]:
+                
+                stack.pop()
+            
+            else:
+                return False
+        
+        return stack==[]
