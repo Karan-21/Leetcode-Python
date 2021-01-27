@@ -1,0 +1,16 @@
+class Solution:
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+
+        nums3=nums1+nums2
+        nums3.sort()
+        
+        length=len(nums3)
+        
+        if length%2==0:
+            mid=int(length/2)
+            sums=(nums3[mid-1]+nums3[mid])/2
+            return sums
+    
+        else:
+            mid=int(length/2)
+            return nums3[mid]
