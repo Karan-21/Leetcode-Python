@@ -1,0 +1,14 @@
+class Solution(object):
+    def isCompleteTree(self, root):
+        if not root:
+            return       
+        ret = []
+        q = collections.deque([(root, 1)])
+        while q:
+            node, idx = q.popleft()
+            ret.append(idx)
+            if node.left:
+                q+=[(node.left, 2*idx)]
+            if node.right:
+                q+=[(node.right, 2*idx+1)] 
+        return len(ret)==ret[-1]
